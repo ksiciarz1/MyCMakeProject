@@ -63,3 +63,10 @@
 11	476	629855517	CMakeFiles/MyCMakeProject.dir/Animation.cpp.obj	723504ef15f59a88
 2	477	629855517	CMakeFiles/MyCMakeProject.dir/MyCMakeProject.cpp.obj	66fd847eb7170f5e
 477	1266	629855518	MyCMakeProject.exe	9faf096a86a8bbc5
+15	795	629856802	CMakeFiles/MyCMakeProject.dir/Enemy.cpp.obj	e7bdb5a3c328d3f8
+22	828	629856802	CMakeFiles/MyCMakeProject.dir/Animation.cpp.obj	723504ef15f59a88
+8	829	629856802	CMakeFiles/MyCMakeProject.dir/MyCMakeProject.cpp.obj	66fd847eb7170f5e
+1	831	629856802	CMakeFiles/MyCMakeProject.dir/Object.cpp.obj	2d09311168c9c703
+831	1704	629856802	MyCMakeProject.exe	9faf096a86a8bbc5
+2	619	629856850	CMakeFiles/MyCMakeProject.dir/Animation.cpp.obj	723504ef15f59a88
+620	1487	629856850	MyCMakeProject.exe	9faf096a86a8bbc5

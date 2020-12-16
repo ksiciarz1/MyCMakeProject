@@ -17,6 +17,14 @@ Vector2f Object::getPosition()
 {
 	return sprite.getPosition();
 }
+void Object::addAnimation(Animation animation)
+{
+	animations.push_back(animation);
+}
+void Object::setAnimationSprite(int fromAnimation)
+{
+	sprite.setTexture(animations.at(fromAnimation).getCurrentFrame());
+}
 Object::Object(Texture texture, Vector2i position, Vector2i origin)
 {
 	sprite.setTexture(texture);

@@ -37,6 +37,8 @@ int main()
 
 	Enemy myself(sqr, Vector2i(0, 0), Vector2i(50, 50));
 
+	myself.addAnimation(animation);
+
 
 	while (window.isOpen())
 	{
@@ -84,10 +86,10 @@ int main()
 					myself.move(Vector2i(50, 0));
 					break;
 				case Keyboard::E:
-					if (animation.compareTime())
+					if (myself.animations.at(0).compareTime())
 					{
 						std::cout << "Animacja" << std::endl;
-						std::cout << std::to_string(animation.currentFrame) << std::endl;
+						std::cout << std::to_string(myself.animations.at(0).currentFrame) << std::endl;
 					}
 					break;
 				}

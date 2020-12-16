@@ -20,7 +20,15 @@ int main()
 	int i = 0;
 
 	Texture sqr;
+	Texture sqr2;
 	sqr.loadFromFile("C:\\Users\\Kakasuke\\Desktop\\MyCMakeProject\\Texture\\sqr.png");
+	sqr2.loadFromFile("C:\\Users\\Kakasuke\\Desktop\\MyCMakeProject\\Texture\\sqr.png");
+
+	Animation animation;
+
+	animation.addTexture(sqr);
+	animation.addTexture(sqr2);
+	animation.startTimer();
 
 	/*Sprite myself(sqr);
 	myself.setOrigin(50, 50);
@@ -74,6 +82,13 @@ int main()
 					break;
 				case Keyboard::D:
 					myself.move(Vector2i(50, 0));
+					break;
+				case Keyboard::E:
+					if (animation.compareTime())
+					{
+						std::cout << "Animacja" << std::endl;
+						std::cout << std::to_string(animation.currentFrame) << std::endl;
+					}
 					break;
 				}
 			}

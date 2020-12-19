@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\out\\build",
     "\\Texture"
   ],
-  "SelectedNode": "\\Animation.cpp",
+  "SelectedNode": "\\Texture\\move2.png",
   "PreviewInSolutionExplorer": false
 }

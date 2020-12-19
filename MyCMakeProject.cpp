@@ -10,7 +10,7 @@ int main()
 {
 	RenderWindow window(VideoMode(800, 600), "My Window", Style::Close);
 	window.setFramerateLimit(60);
-	window.setPosition(Vector2i(0, 0));
+	//window.setPosition(Vector2i(0, 0));
 	window.setActive();
 
 
@@ -19,26 +19,21 @@ int main()
 
 	int i = 0;
 
-	Texture sqr;
-	Texture sqr2;
-	sqr.loadFromFile("C:\\Users\\Kakasuke\\Desktop\\MyCMakeProject\\Texture\\sqr.png");
-	sqr2.loadFromFile("C:\\Users\\Kakasuke\\Desktop\\MyCMakeProject\\Texture\\sqr.png");
-
+	Texture idle, move1, move2;
 	Animation animation;
+	idle.loadFromFile("..\\..\\..\\Texture\\idle.png");
+	move1.loadFromFile("..\\..\\..\\Texture\\move1.png");
+	move2.loadFromFile("..\\..\\..\\Texture\\move2.png");
 
-	animation.addTexture(sqr);
-	animation.addTexture(sqr2);
+	animation.addTexture(&idle);
+	animation.addTexture(&move1);
+	animation.addTexture(&move2);
 	animation.startTimer();
 
-	/*Sprite myself(sqr);
-	myself.setOrigin(50, 50);
-	myself.setPosition(250, 250);
-	myself.setColor(Color(255, 255, 255));*/
-
-	Enemy myself(sqr, Vector2i(0, 0), Vector2i(50, 50));
+	Enemy myself(&idle, Vector2i(150, 150), Vector2i(50, 50));
 
 	myself.addAnimation(animation);
-
+	myself.sprite.setTextureRect(IntRect(0, 0, 100, 100));
 
 	while (window.isOpen())
 	{
@@ -90,6 +85,8 @@ int main()
 					{
 						std::cout << "Animacja" << std::endl;
 						std::cout << std::to_string(myself.animations.at(0).currentFrame) << std::endl;
+						myself.setAnimationSprite(0);
+						myself.sprite.setColor(Color(255, 255, 255));
 					}
 					break;
 				}
@@ -102,12 +99,13 @@ int main()
 					if ((myself.getPosition().x - mousePosition.x <= 50) && (myself.getPosition().x - mousePosition.x >= -50) &&
 						(myself.getPosition().y - mousePosition.y <= 50) && (myself.getPosition().y - mousePosition.y >= -50))
 					{
-						myself.sprite.setColor(Color(255, 0, 0));
-						std::cout << "Dziala" << std::endl;
+						myself.sprite.setColor(Color(255, 25, 25));
+						std::cout << "Hit" << std::endl;
 					}
 					else
 					{
-						std::cout << std::to_string(myself.getPosition().x - mousePosition.y) + ", " + std::to_string(myself.getPosition().y - mousePosition.y) << std::endl;
+						//code ...
+						//std::cout << std::to_string(myself.getPosition().x - mousePosition.y) + ", " + std::to_string(myself.getPosition().y - mousePosition.y) << std::endl;
 					}
 				}
 			}

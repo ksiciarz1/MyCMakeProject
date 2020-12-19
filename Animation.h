@@ -12,15 +12,16 @@ class Animation
 public:
 	void startTimer();
 	bool compareTime();
-	Texture getCurrentFrame();
-	void addTexture(Texture texture);
+	Texture* getCurrentFrame();
+	void addTexture(Texture* texture);
+	//void addTexture(String filePath);
 
 	Animation();
 	~Animation();
 
 	int currentFrame = 0;
 private:
-	std::vector<Texture> animationFrames;
+	std::vector<Texture*> animationFrames;
 	float animationSpeed = 300;
 	clock_t timer;
 };

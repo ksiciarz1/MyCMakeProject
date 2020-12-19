@@ -9,30 +9,35 @@ bool Animation::compareTime()
 {
 	if ((float)(clock() - timer) >= animationSpeed)
 	{
-		if (animationFrames.size() < currentFrame)
-		{
-			currentFrame++;
-		}
-		else {
-			currentFrame = 0;
-		}
 		timer = clock();
 		return true;
 	}
+	else return false;
+}
+Texture* Animation::getCurrentFrame()
+{
+	if (animationFrames.size() > currentFrame)
+	{
+		currentFrame++;
+		return animationFrames.at(currentFrame - 1);
+	}
 	else
 	{
-		std::cout << std::to_string((float)(clock() - timer)) << std::endl;
-		return false;
+		currentFrame = 0;
+		return animationFrames.at(currentFrame);
 	}
 }
-Texture Animation::getCurrentFrame()
-{
-	return animationFrames.at(currentFrame);
-}
-void Animation::addTexture(Texture texture)
+void Animation::addTexture(Texture* texture)
 {
 	animationFrames.push_back(texture);
 }
+
+/*void Animation::addTexture(String filePath)
+{
+	Texture texture;
+	texture.loadFromFile(filePath);
+	animationFrames.push_back(texture);
+}*/
 
 Animation::Animation()
 {

@@ -12,5 +12,10 @@ private:
 
 public:
 	bool getHit(int damage);
-	Enemy(Texture texture, Vector2i position, Vector2i origin);
+	std::vector<Animation> animations;
+
+	Enemy(Texture* texture, Vector2i position, Vector2i origin);
+
+	void addAnimation(Animation animation);
+	void setAnimationSprite(int fromAnimation);
 };

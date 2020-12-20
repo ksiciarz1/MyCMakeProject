@@ -5,8 +5,9 @@
 
 #include <iostream>
 #include "Object.h"
-#include "Enemy.h"
+#include "Character.h"
 #include "Animation.h"
 #include <SFML/Graphics.hpp>
+#include <time.h>
 
 // TODO: Reference additional headers your program requires here.

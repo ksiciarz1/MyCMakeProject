@@ -59,7 +59,7 @@ build CMakeFiles\MyCMakeProject.dir\Object.cpp.obj: CXX_COMPILER__MyCMakeProject
   TARGET_COMPILE_PDB = CMakeFiles\MyCMakeProject.dir\
   TARGET_PDB = MyCMakeProject.pdb
 
-build CMakeFiles\MyCMakeProject.dir\Enemy.cpp.obj: CXX_COMPILER__MyCMakeProject_Debug ..\..\..\Enemy.cpp || cmake_object_order_depends_target_MyCMakeProject
+build CMakeFiles\MyCMakeProject.dir\Character.cpp.obj: CXX_COMPILER__MyCMakeProject_Debug ..\..\..\Character.cpp || cmake_object_order_depends_target_MyCMakeProject
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
   INCLUDES = -ID:\Pobrane\vcpkg-master\vcpkg-master\installed\x64-windows\include
   OBJECT_DIR = CMakeFiles\MyCMakeProject.dir
@@ -83,7 +83,7 @@ build CMakeFiles\MyCMakeProject.dir\Animation.cpp.obj: CXX_COMPILER__MyCMakeProj
 #############################################
 # Link the executable MyCMakeProject.exe
 
-build MyCMakeProject.exe: CXX_EXECUTABLE_LINKER__MyCMakeProject_Debug CMakeFiles\MyCMakeProject.dir\MyCMakeProject.cpp.obj CMakeFiles\MyCMakeProject.dir\Object.cpp.obj CMakeFiles\MyCMakeProject.dir\Enemy.cpp.obj CMakeFiles\MyCMakeProject.dir\Animation.cpp.obj | D$:\Pobrane\vcpkg-master\vcpkg-master\installed\x64-windows\debug\lib\sfml-graphics-d.lib D$:\Pobrane\vcpkg-master\vcpkg-master\installed\x64-windows\debug\lib\sfml-window-d.lib D$:\Pobrane\vcpkg-master\vcpkg-master\installed\x64-windows\debug\lib\sfml-system-d.lib
+build MyCMakeProject.exe: CXX_EXECUTABLE_LINKER__MyCMakeProject_Debug CMakeFiles\MyCMakeProject.dir\MyCMakeProject.cpp.obj CMakeFiles\MyCMakeProject.dir\Object.cpp.obj CMakeFiles\MyCMakeProject.dir\Character.cpp.obj CMakeFiles\MyCMakeProject.dir\Animation.cpp.obj | D$:\Pobrane\vcpkg-master\vcpkg-master\installed\x64-windows\debug\lib\sfml-graphics-d.lib D$:\Pobrane\vcpkg-master\vcpkg-master\installed\x64-windows\debug\lib\sfml-window-d.lib D$:\Pobrane\vcpkg-master\vcpkg-master\installed\x64-windows\debug\lib\sfml-system-d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = D:\Pobrane\vcpkg-master\vcpkg-master\installed\x64-windows\debug\lib\sfml-graphics-d.lib  D:\Pobrane\vcpkg-master\vcpkg-master\installed\x64-windows\debug\lib\sfml-window-d.lib  D:\Pobrane\vcpkg-master\vcpkg-master\installed\x64-windows\debug\lib\sfml-system-d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib

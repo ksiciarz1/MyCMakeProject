@@ -8,7 +8,7 @@ project ("MyCMakeProject")
 find_package(SFML 2.5 COMPONENTS system window graphics REQUIRED)
 
 # Add source to this project's executable.
-add_executable (MyCMakeProject "MyCMakeProject.cpp" "MyCMakeProject.h" "Object.h" "Object.cpp" "Enemy.h" "Enemy.cpp" "Animation.h" "Animation.cpp")
+add_executable (MyCMakeProject "MyCMakeProject.cpp" "MyCMakeProject.h" "Object.h" "Object.cpp" "Character.h" "Character.cpp" "Animation.h" "Animation.cpp")
 
 # TODO: Add tests and install targets if needed.
 target_link_libraries(MyCMakeProject PRIVATE sfml-graphics)

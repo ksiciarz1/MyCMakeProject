@@ -1,9 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\out\\build",
-    "\\Texture"
+    ""
   ],
-  "SelectedNode": "\\Texture\\move2.png",
+  "SelectedNode": "\\CMakeLists.txt",
   "PreviewInSolutionExplorer": false
 }

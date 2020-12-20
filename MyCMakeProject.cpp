@@ -20,20 +20,27 @@ int main()
 	int i = 0;
 
 	Texture idle, move1, move2;
-	Animation animation;
+	Animation idleAnimation;
+	Animation moveAnimation;
+
 	idle.loadFromFile("..\\..\\..\\Texture\\idle.png");
 	move1.loadFromFile("..\\..\\..\\Texture\\move1.png");
 	move2.loadFromFile("..\\..\\..\\Texture\\move2.png");
 
-	animation.addTexture(&idle);
-	animation.addTexture(&move1);
-	animation.addTexture(&move2);
-	animation.startTimer();
+	idleAnimation.addTexture(&idle);
+	moveAnimation.addTexture(&move1);
+	moveAnimation.addTexture(&move2);
 
-	Enemy myself(&idle, Vector2i(150, 150), Vector2i(50, 50));
+	idleAnimation.startTimer();
+	moveAnimation.startTimer();
 
-	myself.addAnimation(animation);
+	Character myself(&idle, Vector2i(150, 150), Vector2i(50, 50));
+
+	myself.addAnimation(idleAnimation);
+	myself.addAnimation(moveAnimation);
 	myself.sprite.setTextureRect(IntRect(0, 0, 100, 100));
+
+	clock_t idleTimer = 0;
 
 	while (window.isOpen())
 	{
@@ -84,9 +91,10 @@ int main()
 					if (myself.animations.at(0).compareTime())
 					{
 						std::cout << "Animacja" << std::endl;
-						std::cout << std::to_string(myself.animations.at(0).currentFrame) << std::endl;
-						myself.setAnimationSprite(0);
+						std::cout << std::to_string(myself.animations.at(1).currentFrame) << std::endl;
+						myself.setAnimationSprite(1);
 						myself.sprite.setColor(Color(255, 255, 255));
+						idleTimer = clock();
 					}
 					break;
 				}
@@ -95,6 +103,13 @@ int main()
 			{
 				if (event.key.code == Mouse::Left)
 				{
+					/*
+					* foreach.enemyVecotr
+					* {
+					*  ||
+					*  \/
+					* }
+					*/
 					Vector2i mousePosition = Mouse::getPosition(window);
 					if ((myself.getPosition().x - mousePosition.x <= 50) && (myself.getPosition().x - mousePosition.x >= -50) &&
 						(myself.getPosition().y - mousePosition.y <= 50) && (myself.getPosition().y - mousePosition.y >= -50))
@@ -111,22 +126,35 @@ int main()
 			}
 		} //end of Pollevent
 
-		/*if (myself.getPosition().x >= 800)
+		//map bounds
+		if (myself.getPosition().x > 750)
 		{
-			myself.setPosition(0, myself.getPosition().y);
+			myself.sprite.setPosition(750, myself.getPosition().y);
 		}
-		else if (myself.getPosition().x <= -50)
+		else if (myself.getPosition().x < 50)
 		{
-			myself.setPosition(750, myself.getPosition().y);
+			myself.sprite.setPosition(50, myself.getPosition().y);
 		}
-		if (myself.getPosition().y >= 600)
+		if (myself.getPosition().y > 550)
 		{
-			myself.setPosition(myself.getPosition().x, 0);
+			myself.sprite.setPosition(myself.getPosition().x, 550);
 		}
-		else if (myself.getPosition().y <= -50)
+		else if (myself.getPosition().y < 50)
 		{
-			myself.setPosition(myself.getPosition().x, 550);
-		}*/
+			myself.sprite.setPosition(myself.getPosition().x, 50);
+		}
+
+		//setting idle animation after 1500 milsec cooldown
+		if ((float)(clock() - idleTimer) >= 1500)
+		{
+			myself.setAnimationSprite(0);
+			myself.sprite.setColor(Color(255, 255, 255));
+			idleTimer = clock();
+		}
+
+
+		std::cout << std::to_string(myself.getPosition().x) + ", " + std::to_string(myself.getPosition().y) << std::endl;
+
 
 		window.display();
 		sleep(time);
